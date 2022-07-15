@@ -78,7 +78,6 @@ public class Task1_AddAddressPageObjectSteps {
         Assert.assertEquals(message, alertMessage);
     }
 
-//        uncomment to work !!!
 //        @And("I close shop page")
 //        public void CloseShopPage()  {
 //            driver.quit();
