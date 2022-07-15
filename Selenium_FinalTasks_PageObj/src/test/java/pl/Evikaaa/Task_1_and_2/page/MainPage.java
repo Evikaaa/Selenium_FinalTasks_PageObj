@@ -25,4 +25,9 @@ public class MainPage {
     private WebElement clothesfilter;
 
     public void  clothes() {clothesfilter.click();}
+
+    @FindBy (xpath = "//span[contains(text(),'Cirilla Riannon')]")
+    private WebElement setGoMyAccount;
+
+    public void goMyAccount (){setGoMyAccount.click();}
 }

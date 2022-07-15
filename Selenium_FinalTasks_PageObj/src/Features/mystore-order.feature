@@ -16,6 +16,6 @@
     And I choose PrestaShop and Pay by check
     Then I take screenshot
 
-#    When I go to order history and chceck my order is "Awaiting check payment"
+    When I go to order history and check my order is "Awaiting check payment"
 #    Then I check amount to pay is equal like
 

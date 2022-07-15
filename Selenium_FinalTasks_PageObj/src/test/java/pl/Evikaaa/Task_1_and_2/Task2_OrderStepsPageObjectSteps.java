@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pl.Evikaaa.Task_1_and_2.page.*;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -17,9 +16,11 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
+
 public class Task2_OrderStepsPageObjectSteps {
 
     private WebDriver driver;
+    private YourOrderIsConfirmedPage yourOrderIsConfirmedPage;
 
     @Given("I go to main")
     public void iGoToMain() {
@@ -108,8 +109,36 @@ public class Task2_OrderStepsPageObjectSteps {
     }
 
 
-//    @When("I go to order history and chceck my order is {string}")
-//    public void iGoToOrderHistoryAndChceckMyOrderIs(String arg0) {
-//    }
+    @When("I go to order history and check my order is {string}")
+    public void iGoToOrderHistoryAndCheckMyOrder(String message) {
+
+        MainPage mainPage = new MainPage(driver);
+        mainPage.goMyAccount();
+
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        myAccountPage.checkHistoryOrder();
+
+        String alertMessage = driver.findElement(By.xpath("//span[@class='label label-pill bright']")).getText();
+        Assert.assertEquals(message, alertMessage);
+
+        //porównianie nr zamówienia
+
+        /**
+        yourOrderIsConfirmedPage = new YourOrderIsConfirmedPage(driver);
+
+        //nie ma takiego elementu na stronie! szuka na bieżącej. Nr zamówienia z poprzednich stron trzeba przechować jako element LISTY
+        String expectedOrderNr1 = yourOrderIsConfirmedPage.orderNumber1.getText();
+
+        String actualOrderNr2 = driver.findElement(By.cssSelector("th[scope='row']")).getText();
+
+        Assert.assertEquals(expectedOrderNr1, actualOrderNr2);
+         */
+    }
+
+
 }
 
+
+//         path to actual order nr and order price
+//        actualPrice = driver.findElement(By.cssSelector("td[class='text-xs-right']"));
+//        actualOrder = driver.findElement(By.cssSelector("th[scope='row']")).getText();

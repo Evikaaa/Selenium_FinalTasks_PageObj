@@ -13,11 +13,6 @@ public class CreateAddress {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
-//        driver.findElement(By.xpath("//a[@data-link-action='add-address']")).click();
-
-
-
         @FindBy(xpath="//input[@name='alias']")
         private WebElement inputAlias;
         @FindBy(xpath="//input[@name='address1']")
@@ -54,7 +49,4 @@ public class CreateAddress {
 
           submitAddressBtn.click();
       }
-
-
-
 }

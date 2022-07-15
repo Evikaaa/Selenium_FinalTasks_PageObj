@@ -72,11 +72,6 @@ public class Task1_AddAddressPageObjectSteps {
         removeAddressPage.clickRemoveAddressBtn();
     }
 
-//    @When("I remove the address")
-//    public void RemoveTheAddress() {
-//        driver.findElement(By.cssSelector("a[data-link-action='delete-address']")).click();
-//    }
-
     @Then("I can see message that address was removed with text {string}")
     public void iCanSeeMessageThatAddressWasRemovedWithText(String message) {
         String alertMessage = driver.findElement(By.cssSelector("article[data-alert='success']")).getText();

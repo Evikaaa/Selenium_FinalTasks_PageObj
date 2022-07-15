@@ -16,6 +16,11 @@ public class MyAccountPage {
     @FindBy (css = "a[title='Addresses']")
     private WebElement addAddressBtn;
 
-public void createAddress() {addAddressBtn.click();}
+    public void createAddress() {addAddressBtn.click();}
+
+    @FindBy (xpath = "//a[@id='history-link']")
+    private WebElement ordersHistoryBtn;
+
+    public void checkHistoryOrder() {ordersHistoryBtn.click();}
 
 }
