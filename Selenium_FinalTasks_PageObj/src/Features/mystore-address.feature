@@ -5,8 +5,9 @@ Feature: User can add address in to account
 
     Given I go to main page
     When I go to sign in
-     And I login using "dupa666@gmail.com" and "secretpassword666"
-     And I go to my account page
+     And I login using "cirilla@gmail.com" and "secretpassword666"
+
+     And I go to my "Addresses" page at my account page on url "https://mystore-testlab.coderslab.pl/index.php?controller=addresses"
      And I go to create new address
      And I enter new alias <alias> address <address> city <city> postal <postal> country <country> phone <phone>
      And I verify created alias <alias> address <address> city <city> postal <postal> country <country> phone <phone>
@@ -14,7 +15,7 @@ Feature: User can add address in to account
      And I remove the address
     Then I can see message that address was removed with text "Address successfully deleted!"
 
-#     And I close shop page
+     And I close shop page
 
   Examples:
     |alias|address|city|postal|country|phone|

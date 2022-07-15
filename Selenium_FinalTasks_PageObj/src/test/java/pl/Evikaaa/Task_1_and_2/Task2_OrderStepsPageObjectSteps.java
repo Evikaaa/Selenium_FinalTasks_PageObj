@@ -58,11 +58,11 @@ public class Task2_OrderStepsPageObjectSteps {
         Assert.assertEquals(discount, alertDiscount);
     }
 
-    @And("I choose size and quantity and I add item to cart")
-    public void iChooseSizeAndQuantityAndAddItemToCart() {
+    @And("I choose {string} size and quantity {string} and I add item to cart")
+    public void iChooseSizeAndQuantityAndIAddItemToCart(String size, String qty) {
         HPSweaterAttribute hpSweaterAttribute = new HPSweaterAttribute(driver);
-        hpSweaterAttribute.chooseSize();
-        hpSweaterAttribute.chooseQty();
+        hpSweaterAttribute.chooseSize(size);
+        hpSweaterAttribute.chooseQty(qty);
         hpSweaterAttribute.addCart();
         hpSweaterAttribute.btnProceedToBasket();
     }
@@ -94,18 +94,9 @@ public class Task2_OrderStepsPageObjectSteps {
     }
 
     @Then("I take screenshot")
-    public void iTakeScreenshot() throws InterruptedException, AWTException, IOException {
-        Thread.sleep(1000);
-
-        Robot r = new Robot();
-        String path = "D://Shot.jpg";
-        java.awt.Rectangle capture = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-
-        BufferedImage Image = r.createScreenCapture(capture);
-
-        ImageIO.write(Image, "jpg", new File(path));
-
-        System.out.println("Screenshot saved");
+    public void iTakeScreenshot() throws IOException, AWTException, InterruptedException {
+        YourOrderIsConfirmedPage yourOrderIsConfirmedPage = new YourOrderIsConfirmedPage(driver);
+        yourOrderIsConfirmedPage.TakeScreenshot();
     }
 
 
@@ -135,11 +126,10 @@ public class Task2_OrderStepsPageObjectSteps {
          */
     }
 
-
-//    @And("I close browser")
-//    public void iCloseBrowser() {
-//        driver.close();
-//    }
+    @And("I close browser")
+    public void iCloseBrowser() {
+        driver.close();
+    }
 }
 
 

@@ -38,11 +38,17 @@ public class Task1_AddAddressPageObjectSteps {
         signInPage.logInData(email, passwd);
     }
 
-    @When("I go to my account page")
-    public void iGoToMyAccountPage() {
-        MyAccountPage accountPage = new MyAccountPage(driver);
-        accountPage.createAddress();
+
+    @And("I go to my {string} page at my account page on url {string}")
+    public void iGoToMyMyAccountPage(String page, String url) {
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        myAccountPage.createAddress(page, url);
     }
+//    @When("I go to my account page")
+//    public void iGoToMyAccountPage() {
+//        MyAccountPage accountPage = new MyAccountPage(driver);
+//        accountPage.createAddress();
+//    }
 
     @And("I go to create new address")
     public void iGoToCreateNewAddress() {
@@ -78,10 +84,11 @@ public class Task1_AddAddressPageObjectSteps {
         Assert.assertEquals(message, alertMessage);
     }
 
-//        @And("I close shop page")
-//        public void CloseShopPage()  {
-//            driver.quit();
-//        }
+
+        @And("I close shop page")
+        public void CloseShopPage()  {
+            driver.quit();
+        }
     }
 
 
